@@ -12,18 +12,14 @@ class SessionsController < ApplicationController
       flash.now[:alert] = "Incorrect username"
       render :new
     else
-      session[:username] = @user.username
+      session[:current_user_id] = @user.id
       redirect_to :index, notice: "You are logged in!"
     end
   end
 
   def destroy
-    session[:username] = nil
+    session[:current_user_id] = nil
     redirect_to :index, notice: "You are logged out!"
   end
-
-  private
-  def session_params
-    params.require(:session).permit(:username)
-  end
+  
 end

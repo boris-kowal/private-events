@@ -1,3 +1,12 @@
 <h1>User profile</h1>
-<%= "Username: " + @user.username %>
-<%= "Email: " + @user.email %>
+<% if session[:current_user_id].nil? %>
+  <%= "No user logged in" %>
+<% else %>
+  <%= "Username: " + @user.username %>
+  <%= "Email: " + @user.email %>
+  <%= "Events created: "%>
+  <%= current_user.events_created.each do |event| %>
+    <%= "Date: " + event.date %>
+    <%= "Place: " + event.place %>
+  <% end %>
+<% end %>

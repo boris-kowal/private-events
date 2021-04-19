@@ -16,13 +16,14 @@
     <%= msg %>
   </div>
 <% end %>
-  <% if session[:username].nil? %>
+  <% if session[:current_user_id].nil? %>
   <%= "No user logged in" %>
 <% else %>
-  <%= "User logged in: " + session[:username]%>
+  <%= "User logged in: " + current_user.username %>
 <% end %>
 <%= link_to "login", login_path %>
 <%= link_to "logout", logout_path, :method => :delete %>
+<%= link_to "main page", events_path %>
     <%= yield %>
   </body>
 </html>
