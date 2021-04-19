@@ -11,6 +11,18 @@
   </head>
 
   <body>
+  <% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+  <% if session[:username].nil? %>
+  <%= "No user logged in" %>
+<% else %>
+  <%= "User logged in: " + session[:username]%>
+<% end %>
+<%= link_to "login", login_path %>
+<%= link_to "logout", logout_path, :method => :delete %>
     <%= yield %>
   </body>
 </html>
