@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_125202) do
+ActiveRecord::Schema.define(version: 2021_04_19_141320) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "date"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_125202) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.integer "events_attended"
-    t.integer "attendees"
+    t.integer "events_attended_id"
+    t.integer "attendees_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

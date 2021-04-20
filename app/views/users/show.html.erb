@@ -2,11 +2,27 @@
 <% if session[:current_user_id].nil? %>
   <%= "No user logged in" %>
 <% else %>
-  <%= "Username: " + @user.username %>
-  <%= "Email: " + @user.email %>
-  <%= "Events created: "%>
-  <%= current_user.events_created.each do |event| %>
-    <%= "Date: " + event.date %>
-    <%= "Place: " + event.place %>
+  <%= "Username: " + current_user.username %><br>
+  <%= "Email: " + current_user.email %><br>
+  <%= "Events created: "%><br>
+  <% current_user.events_created.each do |event| %>
+    <%= "Name: " + event.name %><br>
   <% end %>
+  <%= "Previously attended events: " %><br>
+  <% current_user.events_attended.each do |event| %>
+    <% if event.date < DateTime.current %>
+      <%= "Name: " + event.name %><br>
+    <% else %
+      <% next %>
+    <% end %>
+  <% end %>
+  <%= "Upcoming events: " %><br>
+  <% current_user.events_attended.each do |event| %>5
+    <% if event.date > DateTime.current %>
+      <%= "Name: " + event.name %><br>
+    <% else %>
+      <% next %>
+    <% end %>
+  <% end %>
+
 <% end %>
