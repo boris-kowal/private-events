@@ -6,3 +6,6 @@
   <%= attendee.username %><br>
 <% end %>
 <%= button_to "Join event", subscriptions_path, params: { id: @event.id }, method: "post" %>
+<% if @event.creator == current_user %>
+  <%= button_to "Invite user to the event", edit_event_path, method: "get" %>
+<% end %>

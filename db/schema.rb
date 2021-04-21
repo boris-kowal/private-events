@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_141320) do
+ActiveRecord::Schema.define(version: 2021_04_21_092325) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "date"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_141320) do
     t.integer "creator_id"
     t.text "description"
     t.string "name"
+    t.string "invited_users"
   end
 
   create_table "subscriptions", force: :cascade do |t|

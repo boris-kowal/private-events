@@ -1,0 +1,6 @@
+<h1>Add User to event</h1>
+<%= form_with model: @event do |f| %>
+  <%= f.label :guest, "Enter the name of the guest" %>
+  <%= f.text_field :guest %>
+  <%= f.submit "submit" %>
+<% end %>
