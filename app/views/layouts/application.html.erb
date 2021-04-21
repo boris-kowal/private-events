@@ -21,6 +21,7 @@
 <% else %>
   <%= "User logged in: " + current_user.username %>
 <% end %>
+<%= link_to "Sign up", new_user_path %>
 <%= link_to "login", login_path %>
 <%= link_to "logout", logout_path, :method => :delete %>
 <%= link_to "main page", events_path %>

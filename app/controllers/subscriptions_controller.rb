@@ -13,7 +13,8 @@ class SubscriptionsController < ApplicationController
     if @subscription.save
       redirect_to :index
     else
-      render :new
+      flash[:alert] = "You already suscribed to this event!"
+      redirect_to @event
     end
   end
 
