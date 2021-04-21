@@ -24,6 +24,8 @@
 <%= link_to "login", login_path %>
 <%= link_to "logout", logout_path, :method => :delete %>
 <%= link_to "main page", events_path %>
+<%= link_to "Profile", user_path(1) %>
+<%= link_to "Create event", new_event_path %>
     <%= yield %>
   </body>
 </html>

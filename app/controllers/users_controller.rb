@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :require_login, only: [:show]
+
   def new
     @user = User.new
   end
@@ -16,6 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @events_past = current_user.events_attended.past
+    @events_upcoming = current_user.events_attended.upcoming
   end
 
   private

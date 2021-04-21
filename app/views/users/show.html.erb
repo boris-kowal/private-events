@@ -4,25 +4,26 @@
 <% else %>
   <%= "Username: " + current_user.username %><br>
   <%= "Email: " + current_user.email %><br>
-  <%= "Events created: "%><br>
+  <h2>Events created:</h2><br>
   <% current_user.events_created.each do |event| %>
     <%= "Name: " + event.name %><br>
   <% end %>
-  <%= "Previously attended events: " %><br>
-  <% current_user.events_attended.each do |event| %>
-    <% if event.date < DateTime.current %>
-      <%= "Name: " + event.name %><br>
-    <% else %
-      <% next %>
-    <% end %>
+
+  <h2>Previously attended events:</h2><br>
+<% if @events_past.nil? %>
+  <%= "No past event" %>
+<% else %>
+  <% @events_past.each do |event| %>
+    <%= link_to event.name, event %>
   <% end %>
-  <%= "Upcoming events: " %><br>
-  <% current_user.events_attended.each do |event| %>5
-    <% if event.date > DateTime.current %>
-      <%= "Name: " + event.name %><br>
-    <% else %>
-      <% next %>
-    <% end %>
+<% end %>
+<h2>Upcoming events:</h2><br>
+<% if @events_upcoming.nil? %>
+  <%= "No upcoming event" %>
+<% else %>
+  <% @events_upcoming.each do |event| %>
+    <%= link_to event.name, event %>
   <% end %>
+<% end %>
 
 <% end %>

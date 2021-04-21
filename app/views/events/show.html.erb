@@ -5,3 +5,4 @@
 <% @event.attendees.each do |attendee| %>
   <%= attendee.username %><br>
 <% end %>
+<%= button_to "Join event", subscriptions_path, params: { id: @event.id }, method: "post" %>
